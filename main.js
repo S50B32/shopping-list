@@ -30,6 +30,8 @@ function addItem(e) {
     
     // appending new delete button to previously created li
     newItem.appendChild(newDeleteButton);
+
+    itemForm.value = "";
   
 };
 
