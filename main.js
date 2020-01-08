@@ -15,23 +15,28 @@ function addItem(e) {
     // preventing default submit button onclick action
     e.preventDefault();
 
-    // creating new li
-    const newItem = document.createElement("li");
-    newItem.className = "list-group-item";
-    newItem.innerText = itemForm.value;
+    // checking if item input is empty
+    if (itemForm.value != ""){
+        //creating new li
+        var newItem = document.createElement("li");
+        newItem.className = "list-group-item";
+        newItem.innerText = itemForm.value;
+        // creating new delete button
+        const newDeleteButton = document.createElement("button");
+        newDeleteButton.className = "btn btn-danger btn-sm float-right delete";
+        newDeleteButton.innerText = "X";
+        // appending new li
+        items.appendChild(newItem);
+        // appending new delete button to previously created li
+        newItem.appendChild(newDeleteButton);
+        // resetting item input box after adding new item
+        itemForm.value = "";
 
-    // creating new delete button
-    const newDeleteButton = document.createElement("button");
-    newDeleteButton.className = "btn btn-danger btn-sm float-right delete";
-    newDeleteButton.innerText = "X";
+    }else{
+        alert("Wprowadź nazwę artykułu");
+    };
 
-    // appending new li
-    items.appendChild(newItem);
     
-    // appending new delete button to previously created li
-    newItem.appendChild(newDeleteButton);
-
-    itemForm.value = "";
   
 };
 
